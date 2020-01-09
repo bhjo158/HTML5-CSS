@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>background</title>
+	<style type="text/css">
+		.div1 {
+			border: 1px solid blue;
+			width: 800px;
+			height: 800px;
+			background-image: url('C:/Users/504-18/Desktop/img/elsa.jpg');
+
+			/* repeat: 바둑판식 배열(Default)
+			   repeat-x: 가로로만 바둑핀식 배열
+			   repeat-y: 세로로만 바둑판식 배열
+			   no-repeat: 바둑판식 배열 X */
+			background-repeat: no-repeat; /* 배경 바둑판식 배열 X */
+
+			/* auto: 기본 배경사이즈 그대로 사용
+			   contain: 태그 안에 배경 이미지다 다들어오도록 확대 또는 축소
+			   cover: 배경 이미지로 요소를 모두 덮도록 이미지를 확대 축소
+			   200px, 150px: 가로 세로사이즈를 지정
+			   50px, 50%, 태그의 길이의 몇%로 지정 */ 
+			background-size: 50%, 50%;
+
+			/* 수평위치: left, center, right
+			   수직위치: top, center, bottom
+			   background-position: 수평위치, 수직위치 */
+			background-position: right, center;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>color</title>
+	<style type="text/css">
+		.span1 {
+			color: #44bd32; /* 16진수 RGB값 */
+		}
+		.span2 {
+			font-size: 100px;
+			/* rgba의 a는 투명도
+			   투명도 0~1, 1은 온전하게 출력, 0은 안나오는거 */
+			/* 예시) 사진 위에 마우스 올리면 옅은 배경을 주고 가격 표시하고 싶을 때 */
+			color: rgba(0, 0, 0, 0.5);
+
+			opacity: 0.5; /* 투명도(0~1) */
+		}
+	</style>
+</head>
+<body>
+	<span class="span1">동선씨 메롱</span>
+	<span class="span2">동선씨 메롱메롱</span>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS로 디자인을 해보자!</title>
+	<style type="text/css"> 
+		div {
+			width: 200px;	/*가로 길이*/
+			height: 200px;	/*세로 길이*/
+			border: 2px solid black; /*테두리 선(두께, 종류, 색상)*/
+		}
+		.cookie { /*.은 class 선택자*/
+			background-color: yellow; /*배경색*/
+		}
+		#mega { /*#은 id 선택자*/
+			border:5px dashed blue;
+		}
+	</style>
+</head>
+<body>
+	<!-- div: 네모상자, 뼈대를 만들때 많이 사용(사용순위 1순위) -->
+	<div id="mega" class="cookie">메가쿠키</div>
+	<br><br>
+	<div>3주허쉬</div>
+	<br><br>
+	<div class="cookie">초코에몽 먹고 싶어요</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>extend.html: 스타일 상속</title>
+	<style type="text/css">
+		#ho {
+			color: red;
+			font-size: 45px;
+		}
+	</style>
+</head>
+<body>
+	<div id="ho">
+		호호호
+		<span>체리링</span>
+	</div>
+	
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>font.html</title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap');
+		@import url('https://fonts.googleapis.com/css?family=Poor+Story&display=swap');
+		#human {
+			font-size: 45px; /* 글자 크기 */
+			/* font-family: 'Gamja Flower', cursive; 글씨체 */
+			font-family: 'Poor Story', cursive;
+
+			/* font-weight는 글자의 굵기를 지정 
+			   숫자는 100~900까지 표현가능
+			   Normal(400), Bold(700) */
+			font-weight: bold; /* font-weight: 700; */
+
+			font-style: italic; /* 이탤릭체 */
+		}
+	</style>
+</head>
+<body>
+	<span id="human">동선씨 /(o.,.,.,.o)/</span>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>gradation.html</title>
+	<style type="text/css">
+		.div1 {
+			width: 1000px;
+			height: 1000px;
+			/* 방향
+			   1. to top
+			   2. to left
+			   3. to right
+			   4. to bottom
+
+			   각도
+			   360도 => 45deg = 45도 */
+			/* background: linear-gradient(45deg, orangered, mediumseagreen); */
+			background: linear-gradient(90deg, rgba(243, 72, 104,1) 20.5625%,rgba(242, 71, 104,1) 20.5625%,rgba(158, 0, 236,1) 80.5625%)
+		}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selector(선택자)</title>
+	<style type="text/css">
+		/* [*] 전체선택자: 모든 태그를 선택 */
+		* {
+			font-size: 45px;
+		}
+		/* [태그] 태그선택자: 해당 태그 전부를 선택 */
+		div {
+			border: 5px solid orangered;
+			margin-bottom: 20px; /* 하단부에 바깥여백 */
+		}
+		/* [#] id선택자: 해당 id 1개 선택 */
+		#div1 {
+			font-weight: bold; /* 글자 진하게 */
+			color: dodgerblue; /* 글자색 */
+		}
+		/* [.] class선택자: 해당 class 복수개 선택 */
+		.point {
+			color: red;
+			font-size: 80px;
+			font-weight: bold;
+		}
+		/* [?, ?] 그룹 선택자: ,로 엮은 그룹 모두 선택 */
+		div, span {
+			color: green;
+		}
+
+		#focus {
+			animation-name: twinkle;
+			animation-duration: 1.2s;
+			animation-iteration-count: infinite;
+		}
+
+		@keyframes twinkle {
+			0%		{opacity: 0;}
+			100%	{opacity: 1;}
+		}
+
+		div { color: yellow; }
+		#div1 { color: red; }
+		.div2 { color: blue; }
+	</style>
+</head>
+<body>
+	<div>
+		TO.동선
+		<p>
+			동선씨 허쉬우유 정말 맛있네요. <span id="focus" class="point">또</span> 먹고싶네요.<br>
+			<span id="focus" class="point">하하 그렇다구요.</span>
+		</p>
+	</div>
+
+	<div id="div1" class="div2" style="color: green">
+		동선씨 장난이에요.
+	</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>text</title>
+	<style type="text/css">
+		#hollywood {
+			font-size: 70px;
+			color: white; /* 글자색 */
+			background-color: black; /* 배경색 */
+			
+			/* text-decoration
+			    - underline: 밑줄
+			    - none: 아무것도 안함
+			    - line-through: 취소선
+			    - overline: 윗줄 */
+			text-decoration: underline; /* 밑줄 */
+
+			/* text-transform
+			    - capitalize: 첫글자 대문자 변환
+			    - uppercase: 대문자
+			    - lowercase: 소문자
+			    - full-width: 전각문자
+			    - none: 아무것도 안함 */
+			text-transform: capitalize;
+		}
+		#movie {
+			color: navy;
+			font-size: 100px;
+			/* text-shadow: 텍스트 그림자 효과
+			   (가로거리, 세로거리, 번짐정도, 색상)
+			*/
+			text-shadow: 5px 5px 3px orangered, 10px 10px 6px mediumseagreen;
+			letter-spacing: 0.2em; /* 자간 */
+		}
+		#actor {
+			width: 500px;
+			border: 1px solid black;
+			font-size: 45px;
+			/* text-align: 정렬
+			   start: 현재 텍스트 줄의 시작 위치
+			   end: 현재 텍스트 줄의 끝 위치
+			   left: 왼쪽 정렬
+			   right: 오른쪽 정렬
+			   center: 가운데 정렬
+			   justify: 양쪽에 맞추어 */
+			text-align: justify;
+
+			line-height: 2; /* 줄간격(px, 2(글자크기 2배)). 텍스트박스를 2배로 늘려준다. */
+		}
+		#aaa {
+			font-size: 45px;
+			width: 500px;
+			height: 300px;
+			border: 3px dashed orangered;
+			margin: 10px;
+			text-align: center;
+			line-height: 300px; /* 텍스트박스 높이를 300px로 늘려준다. */
+		}
+	</style>
+</head>
+<body>
+	<span id="hollywood">Do you like hollywood?</span><br>
+	<span id="movie">JAVA Programming</span>
+
+	<div id="actor"> I Love Python I Love Python I Love Python I Love Python I Love Python I Love Python </div>
+
+	<div id="aaa">Oracle DBMS Oracle DBMS Oracle DBMS Oracle DBMS Oracle DBMS Oracle DBMS Oracle DBMS</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>list-style-type(ul, ol 함께 사용)</title>
+	<style type="text/css">
+		ul {
+			/* ul, ol태그 앞의 기호를 제거할때 사용 */
+			list-style-type: none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>체리</li>
+		<li>제리</li>
+		<li>토미</li>
+	</ul>
+</body>
+</html>
