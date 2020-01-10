@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>navigation: 메뉴 만들기:)</title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Single+Day&display=swap');
+		body {
+			padding: 0;
+			margin: 0;
+			font-family: 'Single Day', cursive;
+		}
+		ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+		.wrap {
+			width: 100%;
+			height: 50px;
+			background-color: pink;
+		}
+		.ulnav > li > a { /* 자식선택자: .ulnav 바로다음 하위의 li태그들만 선택 */
+			float: left;
+			color: white;
+			line-height: 50px;
+			padding: 0 10px; /* 상하: 0, 좌우: 10px */
+		}
+		.ulnav > li > a:hover {
+			background-color: orangered;
+			/* color: yellow; */
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="ulnav">
+			<li><a href="#">Best</a></li>
+			<li><a href="#">New</a></li>
+			<li><a href="#">아우터</a></li>
+			<li><a href="#">상의</a></li>
+			<li><a href="#">하의</a></li>
+		</ul>
+	</div>
+</body>
+</html>
