@@ -19,18 +19,48 @@
 		}
 		.wrap {
 			width: 100%;
-			height: 50px;
-			background-color: pink;
+			height: 100px;
+			background-color: #9DC8C8;
 		}
 		.ulnav > li > a { /* 자식선택자: .ulnav 바로다음 하위의 li태그들만 선택 */
 			float: left;
 			color: white;
-			line-height: 50px;
-			padding: 0 10px; /* 상하: 0, 좌우: 10px */
+			line-height: 100px;
+			padding: 0 30px; /* 상하: 0, 좌우: 10px */
+			font-size: 32px;
 		}
-		.ulnav > li > a:hover {
-			background-color: orangered;
-			/* color: yellow; */
+		.ulnav > li:hover { /* li에 hover할때 li에 수행할 내용 */
+			background-color: #519D9E;
+		}
+		.ulnav > li:hover .dropdown { /* 조건: dropdown이 li의 자손 중 하나여야 한다. (부모형제 안됨) */
+			/* li에 hover할때 .dropdown에 수행할 내용 */
+			display: block;
+		}
+		.ulnav > li {
+			position: relative;
+			display: inline-block;
+			height: 100px;
+		}
+
+		.dropdown {
+			position: absolute;
+			top: 100px;
+			left: 0;
+			width: 100%; /* 부모인 li 사이즈만큼 늘어나고 멈춘다 */
+			display: none;
+		}
+		.dropdown > a {
+			display: block;
+			background-color: #9DC8C8;
+			color: #566270;
+			font-size: 32px;
+			text-align: center;
+			padding: 3px 0;
+		}
+		.dropdown > a:hover {
+			background-color: #519D9E;
+			color: white;
+			/* text-decoration: underline; */
 		}
 	</style>
 </head>
@@ -39,7 +69,16 @@
 		<ul class="ulnav">
 			<li><a href="#">Best</a></li>
 			<li><a href="#">New</a></li>
-			<li><a href="#">아우터</a></li>
+			<li>
+				<a href="#">아우터</a>
+				<div class="dropdown">
+					<a href="#">패딩점퍼</a>
+					<a href="#">가디건</a>
+					<a href="#">야상자켓</a>
+					<a href="#">블레이저</a>
+					<a href="#">코트</a>
+				</div>
+			</li>
 			<li><a href="#">상의</a></li>
 			<li><a href="#">하의</a></li>
 		</ul>
