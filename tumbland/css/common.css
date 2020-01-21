@@ -1,0 +1,80 @@
+/* 구글 웹폰트 */
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap');
+
+/* 공통사항 */
+* { box-sizing: border-box; }
+body {
+	background-color: 
+	font-family: 'Nanum Gothic', sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	color: #222222;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	color: inherit; /* 부모에게 상속받은 색깔 사용 */
+	text-decoration: none;
+}
+
+/* 글자색, 배경색 */
+.f-color1 { color: #3885CA; } /* 자주 쓰는 색상을 클래스로 만들어놓으면 편하다 */
+.f-color2 { color: #EBA444; }
+.f-color3 { color: #D1D1DD; }
+.bg-color1 { background-color: #3885CA; } /* 자주 쓰는 색상을 클래스로 만들어놓으면 편하다 */
+.bg-color2 { background-color: #EBA444; }
+.bg-color3 { background-color: #D1D1DD; }
+
+/* 버튼들 */
+button.btn {
+	display: inline-block;
+	font-weight: 600;
+	text-align: center;
+	font-size: 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 11px 12px;
+	border: 1px solid transparent;
+}
+button.btn-basic {
+	border: 1px solid #686f7a;
+	background-color: white;
+	color: #686f7a;
+}
+button.btn-basic:hover {
+	color: #2F3138;
+	border-color: #2F3138;
+}
+button.btn-primary { /* 나중에 자기가 정한 시그니쳐 색깔로 바꾸기 */
+	background-color: #3885CA; /* 이거보다 조금 더 진한 채도가 높은 색으로 찾기 */
+	color: white;
+}
+button.btn-primary:hover {
+	background-color: #0F4C81;
+	border-color: transparent;
+}
+button.btn-support {
+	background-color: #EBA444;
+	color: white;
+}
+button.btn-support:hover {
+	background-color: #CA8420;
+	border-color: transparent;
+}
+/* Text에 밑줄 쳐지는 CSS 효과 */
+.magicline:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 2.5px;
+	background-color: #506763;
+	transition: width .3s; /* top버튼 눌렀을때 0.5초에 걸쳐서 올라가라 라는 식으로 사용 */
+	/* 앞으로 많이 사용할 기능 transition */
+}
+.magicline:hover:after {
+	width: 100%;
+}
