@@ -169,8 +169,10 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			display: none;
 		}
 		.modal_content {
+			position: relative;
 			width: 420px;
 			height: 458px;
 			background-color: white;
@@ -190,22 +192,37 @@
 			color: #4c4c4c;
 			cursor: pointer;
 		}
+
+		#staySignedIn {
+			visibility: hidden;
+			float: right;
+		}
 		.send_info {
+			position: relative;
 		}
 		.label_placeholder {
+			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 47px;
+			line-height: 47px;
 			color: #adadad;
 		}
-		.send_input {
+		/*.label_placeholder > span:focus {
+			display: none;
+		}
+		.label_placeholder > span:blur {
+			display: block;
+		}*/
+		.login_input {
 			width: 100%;
 			height: 48px;
 			padding: 11px 70px 11px 0;
 			border-width: 0 0 2px 0;
 			border-color: #ebebeb;
 			box-sizing: border-box;
+			outline: none;
 		}
 		.info_user {
 			font-size: 12px;
@@ -213,14 +230,22 @@
 			display: flex;
 			justify-content: space-between;
 		}
+	
 		.icon_account {
 			overflow: hidden;
 			display: inline-block;
 			line-height: 0;
 			font-size: 0;
-			background: url(../../img/naver/check_off.gif);
+			background: url(../../img/ico_account.png);
 			vertical-align: top;
 			text-indent: -9999px;
+		}
+		#state_login {
+			width: 70%;
+			margin: 10px 0;
+		}
+		#state_login > input:checked +label > .icon_account {
+			background-position: 0 -30px;
 		}
 		.icon_check {
 			float: left;
@@ -239,34 +264,85 @@
 			border-radius: 4px;
 			font-weight: bold;
 		}
+		input, button {
+			line-height: 1.5;
+			font-family: NotoSans-Regular,AppleSDGothicNeo-Regular,"맑은 고딕",Malgun Gothic,"돋움",dotum,sans-serif;
+			font-size: 16px;
+			color: #7c7c7c;
+			letter-spacing: -0.03em;
+			word-wrap: break-word;
+		}
+		button {
+			cursor: pointer;
+		}
+		/*div, span {
+			border: 1px solid red;
+		}*/
+		.login_close {
+			position: absolute;
+			top: 7px;
+			right: 7px;
+		}
+		.login_close > button {
+			color: rgb(142, 142, 142);
+			border: none;
+			background: white;
+			font-size: 30px;
+			cursor: pointer;
+			outline: none;
+		}
+		.login_close > button:hover {
+			color: #EBA444;
+		}
+		.pw_eye {
+			position: absolute;
+			color: #AAA;
+			font-size: 16px;
+			top: 0px;
+			right: 7px;
+			cursor: pointer;
+			height: 48px;
+			line-height: 48px;
+			width: 30px;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
 	<div class="modal_wrap">
 		<div class="modal_content">
+			<div class="login_close">
+				<button><i class="fas fa-times"></i></button>
+			</div>
 			<div class="login_title">
 				<h1 id="tumblandServiceLogo">TUMBLAND</h1>
 			</div>
-			<div class="send_info">
-				<label class="label_placeholder" for="input_email">이메일</label>
-				<input type="text" id="input_email" class="send_input">
-			</div>
-			<div class="send_info">
-				<label class="label_placeholder" for="input_pw">비밀번호</label>
-				<input type="password" id="input_pw" class="send_input">
-			</div>
-			<div class="set_login">
-				<div>
+			<form class="frm_login">
+				<div class="send_info">
+					<label class="label_placeholder label_group" for="input_email"><span id="email">이메일</span></label>
+					<input type="text" id="input_email" class="login_input">
+				</div>
+				<div class="send_info input_div">
+					<label class="label_placeholder label_group" for="input_pw"><span id="pw">비밀번호</span></label>
+					<input type="password" id="input_pw" class="login_input">
+					<span class="pw_eye">
+						<i class="fas fa-eye-slash"></i>
+					</span>
+				</div>
+
+				<div id="state_login">
 					<input type="checkbox" id="staySignedIn">
 					<label class="label_group" for="staySignedIn">
 						<span class="icon_account icon_check"></span>
 						<span>로그인 상태 유지</span>
 					</label>
 				</div>
-			</div>
-			<div class="wrap_btn">
-				<button class="btn_confirm" type="button">로그인</button>
-			</div>
+
+				<div class="wrap_btn">
+					<button type="button" class="btn_confirm">로그인</button>
+				</div>
+			</form>
+			
 			<div class="info_user">
 				<div>
 					<a href="#">회원가입</a>
@@ -368,11 +444,120 @@
 							<a href="#"><i class="fas fa-shopping-cart"></i></a>
 						</div>
 					</div>
-					<div><button type="button" class="btn btn-basic">로그인</button></div>
+					<div><button type="button" class="btn btn-basic login_open">로그인</button></div>
 					<div><button type="button" class="btn btn-primary">회원가입</button></div> <!-- 시그니쳐 색깔 -->
 				</div>
 			</div>
 		</div>
 	</header>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	// jQuery 문법
+	// $('선택자').옵션();
+	// $('#test').css('color', 'green');
+	// $=jQuery  (Q는 꼭 대문자로 써야한다)
+	// ('#test') = 선택자(id가 test)
+	// .css() = 옵션(글자색을 녹색);
+
+	// jQuery 이벤트 문법(클릭, 포커스, 블러 등)
+	// $(document).on('이벤트', '선택자', function(){
+	// 		이벤트 발생시 동작할 내용들...
+	// });
+	// $(document).on('click', '#test', function(){ // this다 그러면 이벤트의 선택자를 보면 된다
+	//		$(this).css('color', 'blue');
+	// });
+	// $(document).on() = 문서 전체에서~
+	// ('click')		= 클릭 이벤트가 발생하면
+	// ('#test')		= 아이디가 test인
+	// function() {}	= 익명함수(이름이 없는 함수)
+	// $(this)			= 나 자신(여기서는 #test)
+	// 해석: 문서전체에서 id가 test인 태그가 클릭되면
+	//		 나를(#test) 글자색을 blue로 변경해라!
+
+	// 로그인 input(id, pw)에 focus 되면 테두리색 변경
+	// $(document).on('focus', '.login_input', function(){
+	// 	$(this).parent().css('border', '1.5px solid #3885CA');
+	// });
+	// $(document).on('blur', '.login_input', function(){
+	// 	$(this).parent().css('border', '1.5px solid transparent');
+	// });
+
+	// $(document).on(); 항상 이거 먼저 만들기
+	$(document).on('click', '.login_open', function(){
+		$('.modal_wrap').css('display', 'flex');
+		$('#input_email').focus();
+	});
+	// 문서 전체에서 login_open 버튼을 클릭을 하면
+	// login_open에서만 독자적으로 쓰니까 이름이 없는 익명함수로 만들어준다
+
+	// Modal창의 X버튼을 클릭하면 Modal창 Close
+	$(document).on('click', '.login_close', function(){
+		$('.modal_wrap').css('display', 'none');
+		$('.frm_login')[0].reset(); // form 태그 안에서 서버단으로 보내는 전체 값들만(input, checkedlist 등)
+		// $('.login_input').val('');
+		$('.pw_eye').prev().attr('type', 'password');
+		$('.pw_eye').html('<i class="fas fa-eye-slash"></i>')
+			   .css('color', '#AAA'); // .으로 찍어서 가는 기법 : 체이닝 기법(점 찍어서 옵션 또쓰고!)
+	});
+
+	// LOGIN Modal창 암호 보이기 or 숨기기
+	$(document).on('click', '.pw_eye', function(){
+		var code = $(this).prev().attr('type');
+		if(code == 'password') {
+			$(this).prev().attr('type', 'text');
+			$(this).html('<i class="fas fa-eye"></i>')
+				   .css('color', '#666');
+		} else {
+			$(this).prev().attr('type', 'password');
+			$(this).html('<i class="fas fa-eye-slash"></i>')
+				   .css('color', '#AAA');
+		}
+	});
+	// 값을 가져오는 방법(보편적으로)
+	// <span class="aaa">동토리</span>
+	// <input type="text" class="dobby">동비</input>
+	//
+	// input태그 값 가져오는 방법
+	// : 서버단으로 값을 보낼때 사용하는 태그들이 대부분
+	// $('.dobby').val();
+	// input태그 값 넣는 방법
+	// $('.dobby').val('메롱');
+	//
+	// input 태그 이외의 값 가져오는 방법
+	// $('.aaa').text();
+	// input 태그 이외의 값 넣는 방법
+	// $('.aaa').text('뭐시여??');
+	//
+	// 태그의 옵션(attribute)을 가져오고 싶을 때
+	// $('.dobby').attr('type');
+	// $('.dobby').attr('class');
+
+	$(document).on('focus', '#input_email', function(){
+		$('#input_email').css('border-color', '#adadad');
+		$('#email').css('display', 'none');
+	});
+	$(document).on('blur', '#input_email', function(){
+		$('#input_email').css('border-color', '#ebebeb');
+		var inputVal = $(this).val();
+		if(inputVal == '') { 
+			$('#email').css('display', 'block');
+		} else {
+			$('.label_group').css('cursor', 'default');
+		}
+	});
+	$(document).on('focus', '#input_pw', function(){
+		$('#input_pw').css('border-color', '#adadad');
+		$('#pw').css('display', 'none');
+	});
+	$(document).on('blur', '#input_pw', function(){
+		$('#input_pw').css('border-color', '#ebebeb');
+		var inputVal = $(this).val();
+		if(inputVal == '') { 
+			$('#pw').css('display', 'block');
+		} else {
+			$('.label_group').css('cursor', 'default');
+		}
+	});
+</script>
 </html>
